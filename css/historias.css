@@ -124,7 +124,21 @@ body {
 }
 
 .content__title {
-	font-size: 10vw;
+	font-size: 6vw;
+	will-change: transform;
+	mix-blend-mode: overlay;
+	text-align: center;
+	color: var(--color-title);
+	pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	user-select: none; 
+}
+
+.content__text {
+	font-size: 1.5vw;
 	will-change: transform;
 	mix-blend-mode: overlay;
 	text-align: center;

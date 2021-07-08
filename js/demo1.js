@@ -122,6 +122,9 @@
             this.DOM.contentTitle = this.DOM.content.querySelector('.content__title');
             this.DOM.contentText = this.DOM.content.querySelector('.content__text');
             this.DOM.contentNecessidades = this.DOM.content.querySelector('.content__necessidades');
+            this.DOM.contentDetalhes = this.DOM.content.querySelector('.content__detalhes');
+            this.DOM.contentDoar = this.DOM.content.querySelector('.content__button');
+            this.DOM.contentMapa = this.DOM.content.querySelector('.content__mapa');
             // Calculate heights of both the grid wrap and the grid, and also:
             // . the difference between them (then used for the grid/mousemove translation)
             // . the number of rows/columns 
@@ -159,7 +162,11 @@
                 // The item's title.
                 const title = item.dataset.title;
                 const text = item.dataset.text;
-                const necessidades = item.dataset.necessidades;
+
+                const necessidades = document.createElement("LI");
+                const textnode = document.createTextNode(item.dataset.necessidades);
+                necessidades.appendChild(textnode);
+                
                 // Show the title next to the cursor.
                 item.addEventListener('mouseenter', () => cursor.setTitle(title));
                 item.addEventListener('click', () => {
@@ -189,7 +196,7 @@
             // Set the content background image and title
             this.DOM.content.style.backgroundImage = this.DOM.items[this.pos].querySelector('.grid__item-inner').style.backgroundImage.replace(/img/g, 'img/large');
             this.DOM.contentTitle.innerHTML = this.title;
-            this.DOM.contentNecessidades.innerHTML = this.necessidades;
+            
             this.DOM.contentText.innerHTML = this.text;
             // Scales down and fades out the mouse toggle
             cursor.click();
@@ -216,8 +223,8 @@
                 delay: 200,
                 easing: 'easeOutExpo',
                 opacity: [0,1],
-                translateY: [50,-250],
-                translateX: [50,80]
+                translateY: [50,-270],
+                
             });
 
             anime({
@@ -226,7 +233,7 @@
                 delay: 200,
                 easing: 'easeOutExpo',
                 opacity: [0,1],
-                translateY: [50,0],
+                translateY: [50,-110],
                 translateX: [50,0]
             });
 
@@ -236,10 +243,39 @@
                 delay: 200,
                 easing: 'easeOutExpo',
                 opacity: [0,1],
-                translateY: [50,-100]
+                translateY: [50,70],
+                translateX: [50,-550]
             });
 
-            
+            anime({
+                targets: this.DOM.contentDetalhes,
+                duration: 1700,
+                delay: 200,
+                easing: 'easeOutExpo',
+                opacity: [0,1],
+                translateY: [50,185],
+                translateX: [50,-400]
+            });
+
+            anime({
+                targets: this.DOM.contentDoar,
+                duration: 1700,
+                delay: 200,
+                easing: 'easeOutExpo',
+                opacity: [0,1],
+                translateY: [50,130],
+                translateX: [50,480]
+            });
+
+            anime({
+                targets: this.DOM.contentMapa,
+                duration: 1700,
+                delay: 200,
+                easing: 'easeOutExpo',
+                opacity: [0,1],
+                translateY: [50,130],
+            });
+
         }
         
         showGrid() {
@@ -275,3 +311,6 @@
     // Preload all the images in the page
     imagesLoaded(document.querySelectorAll('.grid__item-inner, img'), {background: true}, () => document.body.classList.remove('loading'));
 }
+
+
+    

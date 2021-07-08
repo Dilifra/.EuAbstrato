@@ -119,12 +119,14 @@ body {
 	justify-content: center;
 	background-position: 50% 30%;
 	background-size: cover;
-	background-blend-mode: soft-light;
+	background-blend-mode:multiply;
 	cursor: pointer;
 }
 
 .content__title {
-	font-size: 6vw;
+	white-space: nowrap;
+	position: absolute;
+	font-size: 5vw;
 	will-change: transform;
 	mix-blend-mode: overlay;
 	text-align: center;
@@ -138,10 +140,12 @@ body {
 }
 
 .content__text {
+	position:absolute;
+	max-width:1200px;
 	font-size: 1.5vw;
 	will-change: transform;
-	mix-blend-mode: overlay;
-	text-align: center;
+	mix-blend-mode:hard-light;
+	text-align: justify;
 	color: var(--color-title);
 	pointer-events: none;
 	-webkit-touch-callout: none;
@@ -149,6 +153,58 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none; 
 	user-select: none; 
+}
+
+.content__necessidades {
+	position:absolute;
+	font-size: 1.7vw;
+	will-change: transform;
+	mix-blend-mode:hard-light;
+	text-align: left;
+	color: var(--color-title);
+	pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	user-select: none; 
+}
+
+.content__detalhes {
+	position:absolute;
+	max-width:400px;
+	font-size: 1.5vw;
+	will-change: transform;
+	mix-blend-mode:hard-light;
+	text-align: justify;
+	color: var(--color-title);
+	pointer-events: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	user-select: none; 
+}
+
+.content__mapa {
+	position:absolute;
+}
+
+.content__button {
+	position:absolute;
+	font-size: 1.9vw;
+	will-change: transform;
+	padding: 10px 20px;
+	border-radius: 3px;
+	background: #FF6F00;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	display: inline-block;
+	cursor: pointer;
+}
+.content__button:hover {
+  background: #e66400;
 }
 
 .grid-wrap--hidden {
